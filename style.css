@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+
+body {
+    background-image: url("background2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+h1 {
+    text-align: left;
+    color: #7D5B2C;
+    font-family: "Gloock", serif;
+    font-size: 140px;
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+h2 {
+    text-align: left;
+    color: #8C7D69;
+    font-family: "Gloock", serif;
+    font-size: 30px;
+    margin-top: 0%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+p {
+    text-align: left;
+    color: #94887C;
+    font-family: "Crimson Text", serif;
+    font-size: 48px;
+    margin-top:50px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+img.envelope{
+    float: right;
+    margin-top: 0px;
+    
+}
