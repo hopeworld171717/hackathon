@@ -14,7 +14,7 @@ h1 {
     color: #7D5B2C;
     font-family: "Gloock", serif;
     font-size: 140px;
-    margin-top: 2%;
+    margin-top: 1%;
     margin-left: 5%;
     margin-bottom: 10px;
 }
@@ -27,17 +27,47 @@ h2 {
     margin-left: 5%;
     margin-bottom: 10px;
 }
-p {
+.p2 {
     text-align: left;
     color: #94887C;
     font-family: "Crimson Text", serif;
     font-size: 48px;
-    margin-top:50px;
+    margin-top:25px;
     margin-left: 5%;
     margin-right: 5%;
 }
-img.envelope{
+
+.p1 {
+    text-align: left;
+    color: #90672D;
+    font-family: "Gloock", serif;
+    font-size: 60px;
+    margin-top: 25px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+img.letters{
     float: right;
     margin-top: 0px;
+    margin-right: 100px;
     
+}
+
+button {
+  background-color: transparent;      
+  color: #90672D;                     
+  font-family: 'Gloock', serif;
+  font-size: 45px;                   
+  padding: 10px 100px;                 
+  border: 4px solid #90672D;            
+  border-radius: 50px;
+  cursor: pointer;
+  margin-left: 5%;
+  margin-top:10px;
+}
+button:hover {
+  background-color:#90672de0;           
+    color: #f5eae0;                      
+  transition: background-color 0.3s, color 0.3s;
+  cursor:pointer; 
 }
