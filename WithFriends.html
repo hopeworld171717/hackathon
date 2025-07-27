@@ -96,6 +96,19 @@
     .done-button:hover {
        background:rgb(211, 183, 144);
     }
+    .help-button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      border: 2px solid #8c6d47;
+      background:rgb(236, 217, 191);
+      border-radius: 20px;
+      font-size: 16px;
+      font-family: serif;
+      color:#624537;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
   </style>
 </head>
 <body>
@@ -120,12 +133,12 @@ Well,now there is. <br>Write to your friend,Let future them know how much they m
     <p id="prompt"></p>
     <script>
       const prompts = [
-        "Write about something you're proud of recently.",
-        "What do you hope future-you has learned?",
-        "Describe one moment you want to remember forever.",
-        "What is something you're currently worried about?",
-        "Set one goal you hope you’ve achieved by the time this opens.",
-        "What are three things that make you happy right now?"
+        "Write about something you're proud of them for.",
+        "What hopes do you have for their future?",
+        "Describe one moment with them you want to remember forever.",
+        "What is something they're currently worried about?",
+        "Ask about one goal they hope they've achieved by the time this opens.",
+        "What are three things you love about them?"
       ];
 
       function generatePrompt() {
