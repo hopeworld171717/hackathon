@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang-"en">
+<head>
+   <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial -scale.0" />
+      <title> egg cracking animation</title>
+   <link rel="stylesheet" hhref="stlye.css'>
+   <script src="https://unpkg.com/lottie player@latest/dist/lottie-player.jis"></head>script
+   
+<style> body {
+   background: #f0f0f0;
+   display: flex;
+   justify: center;
+   align-items:baseline;
+   height: 100vh;
+   margin:auto
+}
+ .egg container {
+   display: flex;
+   flex-direction : column;
+   algin-items:
+ }
+
+<body>
+   <div class="egg-container">
+    <lottie-player
+      id="eggAnimation"
+      src="egg-crack.json"
+      background="transparent"
+      speed="1"
+      style="width: 300px; height: 300px"
+></lottie-player>
+<div class="letter">🎉 Your Egg Hatched! 🎉</div>
+<div id="timer">00:00:10</div>
+</div>
+
+<script>
+      let time = 10; // seconds
+  const timerElement = document.getElementById("timer");
+  const letter = document.querySelector(".letter");
+  const eggAnim = document.getElementById("eggAnimation");
+
+// Initially stop animation
+  eggAnim.stop();
+
+  const countdown = setInterval(() => {
+   let minutes = Math.floor(time / 60);
+   let seconds = time % 60;
+   timerElement.textContent = `00:${minutes
+   .toString()
+   .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+
+    if (time <= 0) {
+       clearInterval(countdown);
+       timerElement.textContent = "00:00:00";
+
+// Play egg cracking animation
+  eggAnim.play();
+
+// Show letter after animation completes
+  eggAnim.addEventListener("complete", () => {
+  letter.classList.add("show");
+});
+}
+   time--;
+}, 1000);
+  </script>
+</body>
+</html>
+
