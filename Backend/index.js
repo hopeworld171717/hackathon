@@ -18,9 +18,11 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log("✅ Connected to MongoDB"))
 .catch((err) => console.error("❌ MongoDB connection failed:", err));
 
-// Import routes
-const capsuleRoutes = require('./routes/capsules');
-app.use('/capsules', capsuleRoutes);
+// // Import routes
+// const capsuleRoutes = require('./routes/capsules');
+// app.use('/capsules', capsuleRoutes);
+
+app.use('/api', require('./routes'));
 
 // Start the server
 const PORT = process.env.PORT || 3000;
