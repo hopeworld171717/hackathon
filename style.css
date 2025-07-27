@@ -46,11 +46,13 @@ h2 {
     margin-left: 5%;
     margin-right: 5%;
 }
-img.letters{
-    float: right;
-    margin-top: 0px;
+img.letters {
+    position: absolute;
+    top: 0;
+    right: 0;
     margin-right: 100px;
-    
+    margin-top: 60px;
+    z-index: -1;;
 }
 
 button {
