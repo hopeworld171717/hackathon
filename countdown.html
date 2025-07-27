@@ -2,48 +2,58 @@
 <html>
 <head>
     <meta charset="UTF-8"> 
-    <title>Egg Countdown</title> <!-- title of the page -->
-    <link rel="stylesheet" href="set_timer.css"> <!-- linking to the CSS file -->
-    <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet"> <!-- linking to a Google font -->
+    <title>Egg Countdown</title>
+    <link rel="stylesheet" href="set_timer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>hatchspace</h1>
     <h2>
-        <img src="assets/clock.png" style="width: 24px; vertical-align: middle; margin-right: 8px;"><!-- little "full stop" clock -->
-        Your egg will hatch and you will receive an email in:
+        <img src="assets/clock.png" style="width: 24px; vertical-align: middle; margin-right: 8px;">
+        Your egg will hatch in:
     </h2>
 
-    <div id="countdown" class="countdown-style">Loading...</div> <!-- countdown timer will be displayed here -->
+    <div id="countdown" class="countdown-style">Loading...</div>
 
-    <img src="assets/egg (2).png" class="eggshell" alt="eggshell"> 
+    <img src="assets/egg (2).png" class="eggshell" id="egg-img" alt="eggshell">
     <img src="assets/clock.png" class="clock" alt="clock">
 
+    <!-- crack sound -->
+    <audio id="crack-sound" src="assets/crack.mp3" preload="auto"></audio>
+
     <script>
-        const hatchDateTimeStr = localStorage.getItem('hatchDateTime'); // retrieve the hatch date and time from local storage
-        if (!hatchDateTimeStr) window.location.href = "set_timer.html"; // if no date is set, redirect to set_timer.html
+        const hatchDateTimeStr = localStorage.getItem('hatchDateTime');
+        if (!hatchDateTimeStr) window.location.href = "set_timer.html";
 
-        const countdownElement = document.getElementById('countdown'); // getting the countdown element by its ID
-        const targetTime = new Date(hatchDateTimeStr); // converting the stored date string to a Date object
+        const countdownElement = document.getElementById('countdown');
+        const targetTime = new Date(hatchDateTimeStr);
+        const eggImage = document.getElementById('egg-img');
+        const crackSound = document.getElementById('crack-sound');
+        let cracked = false;
 
-        function updateCountdown() { // function to update the countdown timer
-            const now = new Date(); // getting the current date and time
-            const diff = targetTime - now; // calculating the difference between target time and now
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetTime - now;
 
-            if (diff <= 0) { // if the countdown has reached zero or passed
-                countdownElement.textContent = "00:00:00"; // display zero
-                clearInterval(interval); // stop the interval
+            if (diff <= 0 && !cracked) {
+                clearInterval(interval);
+                countdownElement.textContent = "Click on the egg to hatch!";
+                eggImage.src = "assets/egg_crack.png"; // change image
+                crackSound.play(); // play sound
+                cracked = true;
                 return;
             }
 
-            const hours = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, '0'); // calculating hours and formatting to 2 digits
-            const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0'); // calculating minutes and formatting to 2 digits
-            const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0'); // calculating seconds and formatting to 2 digits
-
-            countdownElement.textContent = `${hours}:${minutes}:${seconds}`; // updating the countdown element with formatted time
+            if (diff > 0) {
+                const hours = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, '0');
+                const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+                const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+                countdownElement.textContent = `${hours}:${minutes}:${seconds}`;
+            }
         }
 
-        const interval = setInterval(updateCountdown, 1000); // setting an interval to update the countdown every second
-        updateCountdown(); // initial call to display the countdown immediately
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown();
     </script>
 </body>
 </html>
