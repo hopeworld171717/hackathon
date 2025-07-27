@@ -1,0 +1,64 @@
+h1 {
+    text-align: left;
+    color: #7D5B2C;
+    font-family: "Gloock", serif;
+    font-size: 140px;
+    margin-top: 1%;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background-image: url('assets/background2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h2 {
+    text-align: left;
+    color: #94887C;
+    font-family: "Crimson Text", serif;
+    font-size: 48px;
+    text-align:center;
+    margin-top: 0px;
+}
+
+.future-date{
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 1px solid #7D5B2C;
+    border-radius: 6px;
+    background-color: #eee9e4;
+    color: #7D5B2C;
+    font-family: 'Arial', sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    text-align: center;
+    width: 300px;
+    height: 50px;
+    font-size: 25px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.eggshell {
+    margin-top: 50px;        
+    display: block;           
+    margin-left: auto;        
+    margin-right: auto;  
+}
+.clock {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 110px;
+    right: 28%;
+}

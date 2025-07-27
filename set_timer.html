@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Egg Timer</title>
+    <link rel="stylesheet" href="set_timer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="timer" content="HatchSpace - your egg is hatching!">
+</head>
+<body>
+    <h1>hatchspace</h1>
+    <h2>Set a date for your egg to<br> hatch!</br></h2>
+
+    <input type="date" id="future-date" name="future-date" class="future-date">
+
+    <script>
+    // Get today's date and add one day
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate()+1);
+
+    // Format to YYYY-MM-DD
+    const yyyy = tomorrow.getFullYear();
+    const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    const dd = String(tomorrow.getDate()).padStart(2, '0');
+    const minDate = `${yyyy}-${mm}-${dd}`;
+
+    // Set the min attribute
+    document.getElementById("future-date").min = minDate;
+    </script>
+
+    <img src="assets/egg (2).png" class="eggshell">
+    <img src="assets/clock.png" class="clock">
+
+
+
+</html>
