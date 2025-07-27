@@ -89,6 +89,24 @@
     </div>
 
     <button class="done-button">done</button>
+    <button class="help-button" onclick="generatePrompt()">Need help writing?</button>
+    <p id="prompt"></p>
+    <script>
+      const prompts = [
+        "Write about something you're proud of recently.",
+        "What do you hope future-you has learned?",
+        "Describe one moment you want to remember forever.",
+        "What is something you're currently worried about?",
+        "Set one goal you hope you’ve achieved by the time this opens.",
+        "What are three things that make you happy right now?"
+      ];
+
+      function generatePrompt() {
+        const random = prompts[Math.floor(Math.random() * prompts.length)];
+        document.getElementById("prompt").innerText = `"${random}"`;
+      }
+    </script>
   </div>
+  
 </body>
 </html>
