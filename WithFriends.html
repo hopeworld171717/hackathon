@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Quicksand&display=swap" rel="stylesheet">
   <title>Letter to Your Friend</title>
   <style>
     body {
@@ -90,6 +91,22 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
+    #prompt {
+     margin-top: 15px;
+     padding: 15px;
+      background-color: #f7efe2;
+     border: 1px dashed #b19272;
+     border-radius: 12px;
+     font-family: 'Quicksand', cursive;
+     font-size: 18px;
+      color: #5f4636;
+     text-align: center;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: all 0.3s ease;
+    }
+
   </style>
 </head>
 <body>
@@ -124,8 +141,18 @@ Well,now there is. <br>Write to your friend,Let future them know how much they m
         "Describe one moment with them you want to remember forever.",
         "What is something they're currently worried about?",
         "Ask about one goal they hope they've achieved by the time this opens.",
-        "What are three things you love about them?"
-      ];
+        "What are three things you love about them?",
+        "If you could freeze one memory with them, what would it be?",
+       "What’s one inside joke that always makes you laugh?",
+       "Write a list of silly things you both wanted to do but never did.",
+        "If this letter had a smell, what would it be?",
+       "What do you admire most about their spirit?",
+       "What advice would you give their future self?",
+       "What song reminds you of them, and why?",
+       "Describe your friendship as a fairytale.",
+       "What’s one thing you hope never changes about them?",
+        "How would you celebrate a win in their life 5 years from now?"
+         ];
 
       function generatePrompt() {
         const random = prompts[Math.floor(Math.random() * prompts.length)];
