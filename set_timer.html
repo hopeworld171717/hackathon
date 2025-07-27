@@ -2,37 +2,38 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Egg Timer</title>
-    <link rel="stylesheet" href="set_timer.css">
-    <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="timer" content="HatchSpace - your egg is hatching!">
+    <title>Egg Timer</title> <!-- title of the page -->
+    <link rel="stylesheet" href="set_timer.css"> <!--linking to the CSS file-->
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet"> <!--linking to a Google font-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- responsive design for mobile devices -->
 </head>
 <body>
     <h1>hatchspace</h1>
-    <h2>Set a date for your egg to<br> hatch!</br></h2>
+    <h2>Set a date and time for your egg to<br> hatch!</h2> <!-- heading for the page -->
 
-    <input type="date" id="future-date" name="future-date" class="future-date">
+    <input type="datetime-local" id="future-date" name="future-date" class="future-date"> <!-- input field for selecting date and time -->
 
     <script>
-    // Get today's date and add one day
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(tomorrow.getDate()+1);
+        const dateInput = document.getElementById("future-date"); // getting the input element by its ID
 
-    // Format to YYYY-MM-DD
-    const yyyy = tomorrow.getFullYear();
-    const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
-    const dd = String(tomorrow.getDate()).padStart(2, '0');
-    const minDate = `${yyyy}-${mm}-${dd}`;
+        // Set min to now
+        const now = new Date();
+        now.setSeconds(0, 0); // Remove ms
+        const localISOTime = now.toISOString().slice(0, 16); // Format to YYYY-MM-DDTHH:MM
+        dateInput.min = localISOTime; // setting the minimum date and time to now
 
-    // Set the min attribute
-    document.getElementById("future-date").min = minDate;
+        dateInput.addEventListener('change', () => { // event listener for when the date input changes
+            const selectedDateTime = new Date(dateInput.value); // getting the selected date and time
+            if (selectedDateTime > new Date()) { // check if the selected date is in the future
+                localStorage.setItem('hatchDateTime', dateInput.value); // storing the selected date and time in local storage
+                window.location.href = "countdown.html"; // redirecting to the countdown page
+            } else {
+                alert("Please select a future date and time."); // alert if the selected date is not in the future
+            }
+        });
     </script>
 
-    <img src="assets/egg (2).png" class="eggshell">
-    <img src="assets/clock.png" class="clock">
-
-
-
+    <img src="assets/egg (2).png" class="eggshell"> <!-- image of an egg -->
+    <img src="assets/clock.png" class="clock"> <!-- image of a clock -->
+</body>
 </html>

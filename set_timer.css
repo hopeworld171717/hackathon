@@ -1,10 +1,9 @@
 h1 {
-    text-align: left;
+    text-align: center;
     color: #7D5B2C;
     font-family: "Gloock", serif;
     font-size: 140px;
     margin-top: 1%;
-    text-align: center;
     margin-bottom: 0px;
 }
 
@@ -22,17 +21,16 @@ body {
 }
 
 h2 {
-    text-align: left;
+    text-align: center;
     color: #94887C;
     font-family: "Crimson Text", serif;
-    font-size: 48px;
-    text-align:center;
+    font-size: 32px;
     margin-top: 0px;
 }
 
-.future-date{
+.future-date {
     padding: 10px 14px;
-    font-size: 16px;
+    font-size: 25px;
     border: 1px solid #7D5B2C;
     border-radius: 6px;
     background-color: #eee9e4;
@@ -43,10 +41,17 @@ h2 {
     text-align: center;
     width: 300px;
     height: 50px;
-    font-size: 25px;
     display: block;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 20px auto;
+}
+
+.countdown-style {
+    font-size: 40px;
+    color: #7D5B2C;
+    font-family: "Gloock", serif;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-top: 10px;
 }
 
 .eggshell {
@@ -55,6 +60,7 @@ h2 {
     margin-left: auto;        
     margin-right: auto;  
 }
+
 .clock {
     width: 50px;
     height: 50px;
