@@ -101,7 +101,14 @@
       <textarea placeholder="Write your letter here..."></textarea>
     </div>
 
-    <button class="done-button">done</button>
+    <button class="done-button" id="button1">done</button>
+    <script>
+        const button1 = document.getElementById('button1');
+        button1.addEventListener("click", function() {
+
+            window.location.href="signup.html"; // Redirect to signup.html
+        });
+    </script>
     <button class="help-button" onclick="generatePrompt()">Need help writing?</button>
     <p id="prompt"></p>
     <script>

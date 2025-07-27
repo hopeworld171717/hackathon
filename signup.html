@@ -1,22 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Sign up</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
 <body class="signup-body">
     <div class="form-window">
         <h2>Create account</h2>
         <img src="assets/egg bg.png" alt="Egg icon" class="egg-icon">
-        <form>
-        <input type="text" placeholder="Name" required />
-        <input type="email" placeholder="Email" required />
-        <input type="email" placeholder="Confirm Email" required />
-    
-        <button type="submit" >Sign up</button>
+        <form id="signup-form">
+            <input type="text" id="name" placeholder="Name" required />
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="email" id="confirm-email" placeholder="Confirm Email" required />
+            <p id="error-msg" style="color: red; display: none;"></p>
+            <button type="submit" id="button1">Sign up</button>
         </form>
     </div>
-    </body>
+
+    <script>
+        const form = document.getElementById('signup-form');
+        const errorMsg = document.getElementById('error-msg');
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const confirmEmail = document.getElementById('confirm-email').value.trim();
+
+            if (!name || !email || !confirmEmail) {
+                errorMsg.textContent = "Please fill in all fields.";
+                errorMsg.style.display = "block";
+                return;
+            }
+
+            if (email !== confirmEmail) {
+                errorMsg.textContent = "Emails do not match.";
+                errorMsg.style.display = "block";
+                return;
+            }
+
+            // All validations passed
+            errorMsg.style.display = "none";
+            window.location.href = "set_timer.html"; // Redirect to set_timer.html
+        });
+    </script>
+</body>
 </html>
